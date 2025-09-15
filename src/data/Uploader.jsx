@@ -124,7 +124,6 @@ function Uploader() {
     await createBookings();
     setIsLoading(false);
   }
-
   return (
     <div
       style={{
