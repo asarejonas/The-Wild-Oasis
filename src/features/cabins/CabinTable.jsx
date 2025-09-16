@@ -5,6 +5,7 @@ import Spinner from "../../ui/Spinner";
 import CabinRow from "./CabinRow";
 import useCabins from "./useCabins";
 import { useSearchParams } from "react-router-dom";
+import Empty from "../../ui/Empty";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -35,7 +36,8 @@ function CabinTable() {
   const [searchParams] = useSearchParams();
 
   if (error) return <div>Error: {error.message}</div>;
-  if (!cabins) return null;
+
+  if (!cabins) return <Empty resourceName="cabins" />;
 
   if (isLoading) return <Spinner />;
 
